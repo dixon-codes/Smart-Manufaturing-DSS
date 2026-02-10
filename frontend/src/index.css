@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        @apply bg-slate-950 text-slate-100;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
+    * {
+        @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500;
+    }
+}
+
+@layer utilities {
+
+    /* Simple Scrollbar */
+    .custom-scrollbar::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-track {
+        @apply bg-slate-800;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+        @apply bg-slate-600 hover:bg-slate-500;
+    }
+
+    /* Minimal Glassmorphism */
+    .glass {
+        @apply bg-slate-800/90 border border-slate-700;
+    }
+
+    .glass-strong {
+        @apply bg-slate-800 border border-slate-700;
+    }
+
+    /* Gradient Text - No animation */
+    .gradient-text {
+        @apply bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent;
+    }
+
+    /* Machine Grid - Performance Optimized */
+    .machine-cell {
+        @apply cursor-pointer;
+        transition: transform 0.1s ease-out;
+    }
+
+    .machine-cell:hover {
+        transform: scale(1.08);
+    }
+
+    /* Status Badge */
+    .status-badge {
+        @apply px-2 py-1 rounded text-xs font-bold uppercase;
+    }
+
+    /* Button Styles - Minimal */
+    .btn-primary {
+        @apply bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg;
+        transition: background-color 0.15s;
+    }
+
+    .btn-secondary {
+        @apply bg-slate-700 hover:bg-slate-600 text-slate-200 font-medium py-2 px-4 rounded-lg;
+        transition: background-color 0.15s;
+    }
+
+    .btn-icon {
+        @apply p-2 rounded-lg hover:bg-slate-700;
+        transition: background-color 0.15s;
+    }
+
+    /* Card - Simple */
+    .card {
+        @apply bg-slate-800 border border-slate-700 rounded-lg p-4;
+    }
+
+    /* Input */
+    .input-field {
+        @apply bg-slate-800 border border-slate-700 px-3 py-2 rounded-lg text-slate-100;
+        transition: border-color 0.15s;
+    }
+
+    .input-field:focus {
+        @apply border-blue-500;
+    }
+
+    /* Loading Spinner - Simple */
+    .spinner {
+        @apply animate-spin rounded-full border-2 border-t-transparent;
+    }
+
+    /* Disable all animations on preference */
+    @media (prefers-reduced-motion: reduce) {
+        * {
+            animation: none !important;
+            transition: none !important;
+        }
+    }
+}
